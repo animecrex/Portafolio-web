@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estrella {
+    position: absolute;
+    top: -10px;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: caer 4s linear infinite;
+}
+
+@keyframes caer {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.animated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.letter {
+    transition: 0.4s;
+    transform: translatex(0);
+    color: white;
+    font-size: 50px;
+    @media (width <= 700px) {
+        font-size: 28px;
+    }
+}
+
+.letter:hover {
+    transform: translatey(-1rem);
+    background: -webkit-linear-gradient(120deg, 
+    hsl(0, 87%, 50%), hsl(44, 94%, 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @media ( height <= 700px ) {
+        font-size: 40px;
+    }
+}
+
+.heart {
+    height: 70px;
+    width: 70px;
+    background-color: #f20044;
+    position: relative;
+    box-shadow: 10px 10px 90px #f20044;
+    animation: animeHeart .6s linear infinite;
+    @media (height <= 700px) {
+        height: 50px; /* Adjust heart size */
+        width: 50px;
+        transform: translateX(10px);
+    }
+}
+
+
+
+@keyframes animeHeart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+
+    80% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(.8);
+    }
+}
+
+.heart::before {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    background-color: #f20044;
+    box-shadow: -10px 10px 90px #f20044;
+    top: -50%;
+    border-radius: 50%;
+    @media ( height <= 700px ) {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+.heart::after {
+    content: '';
+    position: absolute;
+    box-shadow: 10px -10px 90px #f20044;
+    height: 70px;
+    width: 70px;
+    background-color: #f20044;
+    right: -50%;
+    border-radius: 50%;
+    @media ( height <= 700px ) {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+
+
+@media ( height <= 700px ) {
+    .heart, .heart::before, .heart::after {
+        font-size: 40px;
+    }
+}
